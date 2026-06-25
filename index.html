@@ -1,0 +1,487 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Polyminds — A multidisciplinary firm</title>
+<meta name="description" content="Polyminds is a multidisciplinary firm operating across hospitality, political intelligence, and policy — one bench of specialists, three ways to put them to work." />
+
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;0,6..72,600;1,6..72,400;1,6..72,500&family=Hanken+Grotesk:wght@400;500;600;700;800&family=IBM+Plex+Mono:wght@500;600&display=swap" rel="stylesheet" />
+
+<style>
+  :root{
+    --navy:#1D274E; --navy-700:#161e3c; --navy-900:#0f1530; --navy-1000:#0a1026;
+    --orange:#FF6724; --orange-600:#ec5410;
+    --ink:#11162b; --muted:#5a6178; --muted-2:#8a90a6; --line:#e4e6ee; --line-strong:#cfd3e0;
+    --paper:#fbfbfd; --paper-2:#f4f5f9; --white:#fff;
+    --on-navy:#eef0f7; --on-navy-muted:#a7adc6; --line-navy:rgba(255,255,255,.14);
+    --serif:'Newsreader',Georgia,serif; --sans:'Hanken Grotesk',system-ui,sans-serif; --mono:'IBM Plex Mono',ui-monospace,monospace;
+    --maxw:1240px; --gut:clamp(20px,5vw,64px); --r:2px;
+    --ease:cubic-bezier(.22,.61,.36,1);
+    --t1:clamp(2.6rem,6.4vw,5.6rem); --t2:clamp(2rem,4vw,3.3rem); --t3:clamp(1.35rem,2.2vw,1.85rem);
+    --shadow-card:0 1px 2px rgba(16,22,43,.04),0 18px 40px -28px rgba(16,22,43,.35);
+  }
+  *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+  html{-webkit-text-size-adjust:100%;scroll-behavior:smooth}
+  body{font-family:var(--sans);background:var(--paper);color:var(--ink);line-height:1.6;font-size:17px;-webkit-font-smoothing:antialiased;text-rendering:optimizeLegibility;overflow-x:hidden}
+  ::selection{background:var(--orange);color:#fff}
+  a{color:inherit;text-decoration:none}
+  img,svg{display:block;max-width:100%}
+  :focus-visible{outline:3px solid var(--orange);outline-offset:3px;border-radius:var(--r)}
+  body::after{content:"";position:fixed;inset:0;pointer-events:none;z-index:9999;opacity:.025;mix-blend-mode:multiply;
+    background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.85' numOctaves='2' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E")}
+
+  .wrap{max-width:var(--maxw);margin-inline:auto;padding-inline:var(--gut)}
+  .mono{font-family:var(--mono);font-weight:500;font-variant-numeric:tabular-nums}
+  .eyebrow{font-family:var(--mono);font-weight:600;font-size:.72rem;letter-spacing:.2em;text-transform:uppercase;color:var(--orange);display:inline-flex;align-items:center;gap:.7em}
+  .eyebrow::before{content:"";width:24px;height:2px;background:var(--orange)}
+  .eyebrow.on-dark{color:var(--orange)}
+  h1,h2,h3{font-family:var(--serif);font-weight:500;line-height:1.04;letter-spacing:-.012em;color:var(--navy)}
+  .serif-i{font-style:italic;font-weight:400}
+
+  .btn{font-family:var(--sans);font-weight:600;font-size:.95rem;display:inline-flex;align-items:center;gap:.6em;padding:.95em 1.5em;border-radius:var(--r);cursor:pointer;border:1px solid transparent;transition:transform .25s var(--ease),background .25s,color .25s,border-color .25s;min-height:48px}
+  .btn .arr{transition:transform .3s var(--ease)}
+  .btn:hover .arr{transform:translateX(4px)}
+  .btn-primary{background:var(--orange);color:#fff}
+  .btn-primary:hover{background:var(--orange-600)}
+  .btn-ghost{background:transparent;color:var(--navy);border-color:var(--line-strong)}
+  .btn-ghost:hover{border-color:var(--navy)}
+  .btn-ghost.on-dark{color:var(--on-navy);border-color:var(--line-navy)}
+  .btn-ghost.on-dark:hover{border-color:rgba(255,255,255,.6)}
+
+  /* HEADER */
+  header{position:fixed;top:0;inset-inline:0;z-index:100;transition:background .35s var(--ease),box-shadow .35s,border-color .35s;border-bottom:1px solid transparent}
+  header.scrolled{background:rgba(251,251,253,.85);backdrop-filter:saturate(1.4) blur(14px);border-bottom:1px solid var(--line)}
+  .nav{display:flex;align-items:center;justify-content:space-between;height:78px}
+  .brand{display:flex;align-items:center;gap:13px}
+  .brand .mark{width:34px;height:34px;flex:none}
+  .brand .name{font-family:var(--sans);font-weight:800;font-size:1.42rem;letter-spacing:-.03em;color:var(--navy);line-height:1}
+  .brand .name .accent{color:var(--orange)}
+  .nav-links{display:flex;align-items:center;gap:36px}
+  .nav-links a{font-weight:600;font-size:.94rem;color:var(--navy);position:relative;padding:6px 0}
+  .nav-links a::after{content:"";position:absolute;left:0;bottom:0;height:2px;width:0;background:var(--orange);transition:width .3s var(--ease)}
+  .nav-links a:hover::after{width:100%}
+  .nav-cta{display:flex;align-items:center;gap:18px}
+  .menu-btn{display:none;background:none;border:0;cursor:pointer;padding:10px}
+  .menu-btn span{display:block;width:24px;height:2px;background:var(--navy);margin:5px 0;transition:.3s}
+  /* HERO — light editorial (shared across pages) */
+  .hero{position:relative;background:var(--paper);overflow:hidden;padding:168px 0 92px}
+  .hero::before{content:"";position:absolute;inset:0;z-index:0;pointer-events:none;background:radial-gradient(56% 74% at 96% -6%,rgba(255,103,36,.09),transparent 60%),radial-gradient(46% 64% at -6% 106%,rgba(29,39,78,.06),transparent 60%)}
+  .hero .wrap{position:relative;z-index:2}
+  .hero-grid{display:grid;grid-template-columns:1.06fr .94fr;gap:52px;align-items:center}
+  .hero-copy{max-width:640px}
+  .hero h1{font-size:var(--t1);color:var(--navy);max-width:13ch;margin-top:24px}
+  .hero .lead{color:var(--muted);font-size:clamp(1.05rem,1.5vw,1.26rem);max-width:46ch;margin-top:26px;line-height:1.55}
+  .hero-actions{display:flex;flex-wrap:wrap;gap:14px;margin-top:36px}
+  .hero-art{position:relative;width:min(100%,440px);aspect-ratio:1/1;justify-self:center;animation:hbob 8s ease-in-out infinite}
+  .hero-art .ring{position:absolute;inset:0;border-radius:50%;border:1px solid var(--line);background:radial-gradient(circle at 50% 36%,rgba(255,103,36,.10),rgba(29,39,78,.035) 72%)}
+  .hero-art .mk{position:absolute;inset:20%;filter:drop-shadow(0 28px 46px rgba(29,39,78,.20))}
+  .hero-art .mk svg{width:100%;height:100%;overflow:visible}
+  @keyframes hbob{0%,100%{transform:translateY(0)}50%{transform:translateY(-12px)}}
+  .hero-practices{display:flex;flex-wrap:wrap;align-items:center;gap:8px 16px;margin-top:48px;padding-top:24px;border-top:1px solid var(--line);font-family:var(--mono);font-size:.74rem;letter-spacing:.05em;text-transform:uppercase;color:var(--muted-2)}
+  .hero-practices b{color:var(--navy);font-weight:600}
+  .hero-practices .sepd{color:var(--orange)}
+
+  section{padding-block:clamp(72px,9vw,128px)}
+  .sec-head{max-width:64ch}
+  .sec-head h2{font-size:var(--t2);margin-top:20px}
+  .sec-head p{color:var(--muted);margin-top:18px;font-size:1.1rem;max-width:56ch}
+
+  /* VERTICALS — centerpiece */
+  .verticals{background:var(--paper-2)}
+  .vgrid{display:grid;grid-template-columns:repeat(3,1fr);gap:22px;margin-top:54px}
+  .vcard{position:relative;display:flex;flex-direction:column;border:1px solid var(--line);border-radius:5px;background:#fff;padding:34px 32px 30px;overflow:hidden;transition:transform .4s var(--ease),box-shadow .4s,border-color .4s}
+  .vcard:hover{transform:translateY(-6px);box-shadow:var(--shadow-card);border-color:var(--line-strong)}
+  .vcard .arch{position:absolute;right:-30px;top:-30px;width:150px;opacity:.06;transition:opacity .4s,transform .4s var(--ease)}
+  .vcard:hover .arch{opacity:.12;transform:rotate(8deg)}
+  .vcard .vnum{font-family:var(--mono);font-size:.74rem;letter-spacing:.06em;color:var(--muted-2)}
+  .vcard h3{font-size:1.72rem;margin-top:16px;line-height:1.08}
+  .vcard h3 .sub{display:block;font-family:var(--sans);font-weight:700;font-size:.78rem;letter-spacing:.16em;text-transform:uppercase;color:var(--orange);margin-bottom:8px}
+  .vcard .vdesc{color:var(--muted);margin-top:14px;font-size:1rem;line-height:1.55;flex:1}
+  .vcard .leads{margin-top:24px;padding-top:18px;border-top:1px solid var(--line)}
+  .vcard .leads .lbl{font-family:var(--mono);font-size:.64rem;letter-spacing:.12em;text-transform:uppercase;color:var(--muted-2);margin-bottom:7px}
+  .vcard .leads .who{font-weight:600;font-size:.94rem;color:var(--ink);line-height:1.45}
+  .vcard .vgo{margin-top:24px;font-weight:600;font-size:.92rem;color:var(--navy);display:inline-flex;align-items:center;gap:.5em}
+  .vcard:hover .vgo{color:var(--orange)}
+  .vcard .vgo .arr{transition:transform .3s var(--ease)}
+  .vcard:hover .vgo .arr{transform:translateX(4px)}
+  /* flagship card */
+  .vcard.flag{background:var(--navy);border-color:var(--navy);color:var(--on-navy)}
+  .vcard.flag .arch{opacity:.1}
+  .vcard.flag:hover .arch{opacity:.18}
+  .vcard.flag .vnum{color:var(--on-navy-muted)}
+  .vcard.flag h3{color:#fff}
+  .vcard.flag .vdesc{color:var(--on-navy-muted)}
+  .vcard.flag .leads{border-color:var(--line-navy)}
+  .vcard.flag .leads .lbl{color:var(--on-navy-muted)}
+  .vcard.flag .leads .who{color:#fff}
+  .vcard.flag .vgo{color:#fff}
+  .vcard.flag:hover .vgo{color:var(--orange)}
+  .vcard .pill{position:absolute;top:30px;right:30px;font-family:var(--mono);font-size:.6rem;letter-spacing:.1em;text-transform:uppercase;padding:5px 10px;border-radius:100px}
+  .pill.live{background:var(--orange);color:#fff}
+  .pill.soon{background:var(--paper-2);color:var(--muted-2);border:1px solid var(--line)}
+
+  /* STATS */
+  .stats{display:grid;grid-template-columns:repeat(4,1fr);gap:1px;background:var(--line);border:1px solid var(--line);margin-top:8px}
+  .stat{background:var(--paper);padding:40px 30px}
+  .stat .num{font-family:var(--serif);font-size:clamp(2.6rem,4.5vw,3.7rem);color:var(--navy);line-height:.95;letter-spacing:-.02em}
+  .stat .num em{color:var(--orange);font-style:normal}
+  .stat .desc{color:var(--muted);margin-top:14px;font-size:.96rem;max-width:26ch}
+
+  /* APPROACH (dark) */
+  .approach{background:var(--navy);color:var(--on-navy);position:relative;overflow:hidden}
+  .approach .watermark{position:absolute;right:-60px;top:50%;transform:translateY(-50%);width:520px;opacity:.06;pointer-events:none}
+  .approach h2{color:#fff}
+  .approach .sec-head p{color:var(--on-navy-muted)}
+  .principles{display:grid;grid-template-columns:repeat(3,1fr);margin-top:58px}
+  .principle{padding:0 34px;border-left:1px solid var(--line-navy)}
+  .principle:first-child{padding-left:0;border-left:0}
+  .principle .pnum{font-family:var(--mono);font-size:.8rem;color:var(--orange)}
+  .principle h3{color:#fff;font-size:1.55rem;margin-top:16px}
+  .principle p{color:var(--on-navy-muted);margin-top:14px;font-size:1rem;line-height:1.6}
+
+  /* TEAM */
+  .team .sub{max-width:54ch}
+  .tgrid{display:grid;grid-template-columns:repeat(5,1fr);gap:18px;margin-top:52px}
+  .tmember{display:flex;flex-direction:column}
+  .tmember .pic{position:relative;aspect-ratio:1/1.12;background:linear-gradient(165deg,var(--navy) 0%,var(--navy-900) 100%);border-radius:4px;overflow:hidden}
+  .tmember .pic::after{content:"";position:absolute;left:0;right:0;bottom:0;height:4px;background:var(--orange);transform:scaleX(0);transform-origin:left;transition:transform .4s var(--ease)}
+  .tmember:hover .pic::after{transform:scaleX(1)}
+  .tmember .pic .wm{position:absolute;left:-10px;top:-10px;width:108px;opacity:.08}
+  .tmember .pic img{position:absolute;bottom:0;left:50%;transform:translateX(-50%);height:98%;width:auto;object-fit:contain;object-position:bottom;filter:grayscale(1) contrast(1.05)}
+  .tmember .pic .mono-av{position:absolute;inset:0;display:grid;place-items:center;font-family:var(--serif);font-size:2.6rem;color:rgba(255,255,255,.92)}
+  .tmember .nm{font-weight:800;font-size:1.05rem;color:var(--navy);margin-top:16px;letter-spacing:-.01em}
+  .tmember .rl{font-family:var(--mono);font-size:.66rem;letter-spacing:.04em;text-transform:uppercase;color:var(--orange);margin-top:6px}
+  .tmember .tags{display:flex;flex-wrap:wrap;gap:5px;margin-top:11px}
+  .tmember .tg{font-size:.66rem;font-weight:600;letter-spacing:.02em;padding:3px 8px;border:1px solid var(--line);border-radius:100px;color:var(--muted)}
+
+  /* CTA */
+  .cta{background:var(--navy-1000);color:#fff;position:relative;overflow:hidden}
+  .cta .inner{display:grid;grid-template-columns:1.3fr .7fr;gap:40px;align-items:center;position:relative;z-index:1}
+  .cta h2{color:#fff;font-size:var(--t2);max-width:16ch}
+  .cta p{color:var(--on-navy-muted);margin-top:20px;max-width:42ch}
+  .cta-side{display:flex;flex-direction:column;gap:14px;align-items:flex-start}
+  .cta .archwm{position:absolute;left:-80px;bottom:-120px;width:480px;opacity:.07}
+
+  /* FOOTER */
+  footer{background:var(--navy);color:var(--on-navy-muted);padding-block:64px 34px}
+  .foot-top{display:grid;grid-template-columns:1.4fr 1fr 1fr 1fr;gap:40px;padding-bottom:48px;border-bottom:1px solid var(--line-navy)}
+  .foot-brand .name{color:#fff}
+  .foot-brand p{margin-top:18px;max-width:32ch;font-size:.95rem;line-height:1.6}
+  .foot-col h4{font-family:var(--mono);color:#fff;font-size:.72rem;letter-spacing:.12em;text-transform:uppercase;margin-bottom:18px}
+  .foot-col a{display:block;padding:7px 0;font-size:.96rem;transition:color .25s}
+  .foot-col a:hover{color:#fff}
+  .foot-bottom{display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:16px;padding-top:28px;font-size:.86rem}
+
+  .reveal{opacity:0;transform:translateY(24px);transition:opacity .8s var(--ease),transform .8s var(--ease)}
+  .reveal.in{opacity:1;transform:none}
+  .hero [data-load]{opacity:0;transform:translateY(26px);animation:rise .9s var(--ease) forwards}
+  @keyframes rise{to{opacity:1;transform:none}}
+
+  .m-menu{position:fixed;inset:0;z-index:200;background:var(--navy);color:#fff;display:flex;flex-direction:column;padding:30px var(--gut);transform:translateY(-100%);transition:transform .45s var(--ease)}
+  .m-menu.open{transform:none}
+  .m-menu .m-top{display:flex;justify-content:space-between;align-items:center}
+  .m-menu .close{background:none;border:0;color:#fff;font-size:2rem;cursor:pointer}
+  .m-menu nav{margin-top:40px;display:flex;flex-direction:column}
+  .m-menu nav a{font-family:var(--serif);font-size:2rem;color:#fff;padding:12px 0;border-bottom:1px solid var(--line-navy)}
+  .m-menu .btn{margin-top:34px;align-self:flex-start}
+
+  @media (max-width:1024px){
+    .hero-grid{grid-template-columns:1fr;gap:40px}
+    .hero-art{display:none}
+    .vgrid{grid-template-columns:1fr}
+    .cta .inner{grid-template-columns:1fr}
+    .tgrid{grid-template-columns:repeat(3,1fr)}
+  }
+  @media (max-width:860px){
+    .nav-links,.nav-cta .btn{display:none}
+    .menu-btn{display:block}
+    .stats{grid-template-columns:1fr 1fr}
+    .principles{grid-template-columns:1fr}
+    .principle{padding:0;border-left:0;border-top:1px solid var(--line-navy);padding-top:28px;margin-top:28px}
+    .principle:first-child{border-top:0;padding-top:0;margin-top:0}
+    .foot-top{grid-template-columns:1fr 1fr}
+  }
+  @media (max-width:560px){
+    body{font-size:16px}
+    .stats{grid-template-columns:1fr}
+    .tgrid{grid-template-columns:1fr 1fr}
+    .foot-top{grid-template-columns:1fr}
+    .hero{padding:128px 0 84px}
+  }
+  @media (prefers-reduced-motion:reduce){
+    *{animation:none!important;transition:none!important;scroll-behavior:auto!important}
+    .reveal,.hero [data-load]{opacity:1!important;transform:none!important}
+  }
+</style>
+</head>
+<body id="top">
+
+<header id="header">
+  <div class="wrap nav">
+    <a class="brand" href="#top" aria-label="Polyminds home">
+      <svg class="mark" viewBox="0 0 100 100" aria-hidden="true">
+        <path d="M2 16 A70 70 0 0 1 72 86 L72 51 A35 35 0 0 0 37 16 Z" fill="#1D274E"/>
+        <rect x="52" y="0" width="35" height="35" rx="1.5" fill="#FF6724"/>
+      </svg>
+      <span class="name">Poly<span class="accent">minds</span></span>
+    </a>
+    <nav class="nav-links" aria-label="Primary">
+      <a href="#verticals">Verticals</a>
+      <a href="#approach">Approach</a>
+      <a href="#team">Team</a>
+      <a href="#contact">Contact</a>
+    </nav>
+    <div class="nav-cta">
+      <a href="#contact" class="btn btn-primary">Start a conversation <span class="arr">→</span></a>
+      <button class="menu-btn" id="menuOpen" aria-label="Open menu"><span></span><span></span><span></span></button>
+    </div>
+  </div>
+</header>
+
+<div class="m-menu" id="mMenu" aria-hidden="true">
+  <div class="m-top">
+    <span class="brand"><span class="name" style="color:#fff">Poly<span class="accent">minds</span></span></span>
+    <button class="close" id="menuClose" aria-label="Close menu">×</button>
+  </div>
+  <nav>
+    <a href="#verticals">Verticals</a>
+    <a href="#approach">Approach</a>
+    <a href="#team">Team</a>
+    <a href="#contact">Contact</a>
+  </nav>
+  <a href="#contact" class="btn btn-primary">Start a conversation <span class="arr">→</span></a>
+</div>
+
+<main>
+  <!-- HERO — light editorial -->
+  <section class="hero">
+    <div class="wrap">
+      <div class="hero-grid">
+        <div class="hero-copy">
+          <span class="eyebrow" data-load style="animation-delay:.05s">A multidisciplinary firm</span>
+          <h1 data-load style="animation-delay:.12s">Many minds. Sharper <span class="serif-i">outcomes.</span></h1>
+          <p class="lead" data-load style="animation-delay:.2s">Polyminds operates across hospitality, political intelligence, and policy — one bench of specialists, three ways to put them to work on the problems that matter most.</p>
+          <div class="hero-actions" data-load style="animation-delay:.28s">
+            <a href="#verticals" class="btn btn-primary">Explore our verticals <span class="arr">→</span></a>
+            <a href="#contact" class="btn btn-ghost">Start a conversation</a>
+          </div>
+          <div class="hero-practices" data-load style="animation-delay:.36s">
+            <span>Our practices</span>
+            <span class="sepd">/</span><b>Hospitality</b>
+            <span class="sepd">/</span><b>Political Intelligence</b>
+            <span class="sepd">/</span><b>Policy</b>
+          </div>
+        </div>
+        <div class="hero-art" aria-hidden="true">
+          <div class="ring"></div>
+          <div class="mk"><svg viewBox="0 0 100 100"><path d="M2 16 A70 70 0 0 1 72 86 L72 51 A35 35 0 0 0 37 16 Z" fill="#1D274E"/><rect x="52" y="0" width="35" height="35" rx="2" fill="#FF6724"/></svg></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- VERTICALS -->
+  <section id="verticals" class="verticals">
+    <div class="wrap">
+      <div class="sec-head reveal">
+        <span class="eyebrow">The verticals</span>
+        <h2>One firm, three <span class="serif-i">practices.</span></h2>
+        <p>Each vertical runs independently, drawing on a shared bench of senior specialists. Different problems, the same standard.</p>
+      </div>
+      <div class="vgrid">
+        <!-- Hospitality -->
+        <a class="vcard reveal" href="#contact">
+          <svg class="arch" viewBox="0 0 100 100" aria-hidden="true"><path d="M2 16 A70 70 0 0 1 72 86 L72 51 A35 35 0 0 0 37 16 Z" fill="#1D274E"/></svg>
+          <span class="pill soon">Page in progress</span>
+          <span class="vnum">Vertical 01</span>
+          <h3><span class="sub">Polyminds</span>Hospitality</h3>
+          <p class="vdesc">Experience-led hospitality ventures — building and running businesses where service, design, and operations meet.</p>
+          <div class="leads"><div class="lbl">Led by</div><div class="who">Ritwick Shrivastav · Nisheeth Srivastava · Manoj Bhosale</div></div>
+          <span class="vgo">Overview soon <span class="arr">→</span></span>
+        </a>
+
+        <!-- Political Intelligence (flagship, live) -->
+        <a class="vcard flag reveal" href="political-intelligence.html">
+          <svg class="arch" viewBox="0 0 100 100" aria-hidden="true"><path d="M2 16 A70 70 0 0 1 72 86 L72 51 A35 35 0 0 0 37 16 Z" fill="#fff"/></svg>
+          <span class="pill live">Live</span>
+          <span class="vnum">Vertical 02</span>
+          <h3><span class="sub">Polyminds</span>Political Intelligence</h3>
+          <p class="vdesc">Experts at winning difficult seats — intelligence, narrative, and war-room execution. A 90% win rate across 20+ states.</p>
+          <div class="leads"><div class="lbl">Led by</div><div class="who">Ritwick Shrivastav · Manoj Bhosale · Suhel Pratap · Sauvik Saha</div></div>
+          <span class="vgo">Enter the vertical <span class="arr">→</span></span>
+        </a>
+
+        <!-- Policy Solutions -->
+        <a class="vcard reveal" href="#contact">
+          <svg class="arch" viewBox="0 0 100 100" aria-hidden="true"><path d="M2 16 A70 70 0 0 1 72 86 L72 51 A35 35 0 0 0 37 16 Z" fill="#1D274E"/></svg>
+          <span class="pill soon">Page in progress</span>
+          <span class="vnum">Vertical 03</span>
+          <h3><span class="sub">Polyminds</span>Policy Solutions</h3>
+          <p class="vdesc">Governance and policy advisory — translating political mandate into deliverable, evidence-based policy.</p>
+          <div class="leads"><div class="lbl">Led by</div><div class="who">Manoj Bhosale · Sauvik Saha</div></div>
+          <span class="vgo">Overview soon <span class="arr">→</span></span>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- STATS -->
+  <section>
+    <div class="wrap">
+      <div class="sec-head reveal">
+        <span class="eyebrow">By the numbers</span>
+        <h2>A record measured in <span class="serif-i">results.</span></h2>
+      </div>
+      <div class="stats reveal" style="transition-delay:.1s">
+        <div class="stat"><div class="num"><em>3</em></div><div class="desc">Specialist verticals under one firm</div></div>
+        <div class="stat"><div class="num"><em>20</em>+</div><div class="desc">States our teams have operated in</div></div>
+        <div class="stat"><div class="num"><em>90</em>%</div><div class="desc">Win rate in our Political Intelligence practice</div></div>
+        <div class="stat"><div class="num">2014<em>→</em></div><div class="desc">An unbroken electoral track record</div></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- APPROACH -->
+  <section id="approach" class="approach">
+    <svg class="watermark" aria-hidden="true" viewBox="0 0 100 100"><path d="M2 16 A70 70 0 0 1 72 86 L72 51 A35 35 0 0 0 37 16 Z" fill="#fff"/><rect x="52" y="0" width="35" height="35" fill="#FF6724"/></svg>
+    <div class="wrap">
+      <div class="sec-head reveal">
+        <span class="eyebrow on-dark">What connects them</span>
+        <h2>Three practices. One way of working.</h2>
+        <p>Whatever the brief, the same operating philosophy holds across every Polyminds vertical.</p>
+      </div>
+      <div class="principles">
+        <div class="principle reveal">
+          <span class="pnum">01</span>
+          <h3>One bench, many disciplines</h3>
+          <p>We staff each problem from a shared pool of senior specialists — so you get the right minds, not a fixed team.</p>
+        </div>
+        <div class="principle reveal" style="transition-delay:.1s">
+          <span class="pnum">02</span>
+          <h3>Evidence over instinct</h3>
+          <p>Every call is traceable to data and ground reality — from a constituency read to an operating decision.</p>
+        </div>
+        <div class="principle reveal" style="transition-delay:.2s">
+          <span class="pnum">03</span>
+          <h3>Accountable to outcomes</h3>
+          <p>We tie our success to yours, measured in seats won, guests served, and policy delivered.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- TEAM -->
+  <section id="team" class="team">
+    <div class="wrap">
+      <div class="sec-head reveal">
+        <span class="eyebrow">The bench</span>
+        <h2>One bench of <span class="serif-i">minds.</span></h2>
+        <p class="sub">The specialists behind the verticals — many of them work across more than one.</p>
+      </div>
+      <div class="tgrid">
+        <div class="tmember reveal">
+          <div class="pic"><svg class="wm" viewBox="0 0 100 100"><path d="M2 16 A70 70 0 0 1 72 86 L72 51 A35 35 0 0 0 37 16 Z" fill="#fff"/></svg><img src="assets/ritwick.png" alt="Ritwick Shrivastav" loading="lazy"/></div>
+          <div class="nm">Ritwick Shrivastav</div>
+          <div class="rl">CEO · Lawyer · Data Analyst</div>
+          <div class="tags"><span class="tg">Hospitality</span><span class="tg">Political Intel.</span></div>
+        </div>
+        <div class="tmember reveal" style="transition-delay:.06s">
+          <div class="pic"><svg class="wm" viewBox="0 0 100 100"><path d="M2 16 A70 70 0 0 1 72 86 L72 51 A35 35 0 0 0 37 16 Z" fill="#fff"/></svg><img src="assets/manoj.png" alt="Manoj Bhosale" loading="lazy"/></div>
+          <div class="nm">Manoj Bhosale</div>
+          <div class="rl">Policy Pro</div>
+          <div class="tags"><span class="tg">Hospitality</span><span class="tg">Political Intel.</span><span class="tg">Policy</span></div>
+        </div>
+        <div class="tmember reveal" style="transition-delay:.12s">
+          <div class="pic"><div class="mono-av" aria-hidden="true">NS</div></div>
+          <div class="nm">Nisheeth Srivastava</div>
+          <div class="rl">Partner</div>
+          <div class="tags"><span class="tg">Hospitality</span></div>
+        </div>
+        <div class="tmember reveal" style="transition-delay:.18s">
+          <div class="pic"><svg class="wm" viewBox="0 0 100 100"><path d="M2 16 A70 70 0 0 1 72 86 L72 51 A35 35 0 0 0 37 16 Z" fill="#fff"/></svg><img src="assets/suhel.png" alt="Suhel Pratap" loading="lazy"/></div>
+          <div class="nm">Suhel Pratap</div>
+          <div class="rl">Journalist</div>
+          <div class="tags"><span class="tg">Political Intel.</span></div>
+        </div>
+        <div class="tmember reveal" style="transition-delay:.24s">
+          <div class="pic"><svg class="wm" viewBox="0 0 100 100"><path d="M2 16 A70 70 0 0 1 72 86 L72 51 A35 35 0 0 0 37 16 Z" fill="#fff"/></svg><img src="assets/sauvik.png" alt="Sauvik Saha" loading="lazy"/></div>
+          <div class="nm">Sauvik Saha</div>
+          <div class="rl">MBA</div>
+          <div class="tags"><span class="tg">Political Intel.</span><span class="tg">Policy</span></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <section id="contact" class="cta">
+    <svg class="archwm" aria-hidden="true" viewBox="0 0 100 100"><path d="M2 16 A70 70 0 0 1 72 86 L72 51 A35 35 0 0 0 37 16 Z" fill="#fff"/></svg>
+    <div class="wrap inner">
+      <div class="reveal">
+        <span class="eyebrow on-dark">Start a conversation</span>
+        <h2 style="margin-top:18px;">Tell us what you're up <span class="serif-i">against.</span></h2>
+        <p>Whether it's a contest, a launch, or a policy problem — tell us the brief and we'll point the right minds at it.</p>
+      </div>
+      <div class="cta-side reveal" style="transition-delay:.1s">
+        <a href="mailto:hello@polymind.in" class="btn btn-primary">Get in touch <span class="arr">→</span></a>
+        <a href="mailto:hello@polymind.in" class="btn btn-ghost on-dark">hello@polymind.in</a>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <div class="wrap">
+    <div class="foot-top">
+      <div class="foot-brand">
+        <span class="brand">
+          <svg class="mark" viewBox="0 0 100 100" aria-hidden="true"><path d="M2 16 A70 70 0 0 1 72 86 L72 51 A35 35 0 0 0 37 16 Z" fill="#fff"/><rect x="52" y="0" width="35" height="35" rx="1.5" fill="#FF6724"/></svg>
+          <span class="name" style="color:#fff">Poly<span class="accent">minds</span></span>
+        </span>
+        <p>A multidisciplinary firm operating across hospitality, political intelligence, and policy.</p>
+      </div>
+      <div class="foot-col">
+        <h4>Verticals</h4>
+        <a href="#contact">Hospitality</a>
+        <a href="political-intelligence.html">Political Intelligence</a>
+        <a href="#contact">Policy Solutions</a>
+      </div>
+      <div class="foot-col">
+        <h4>Firm</h4>
+        <a href="#approach">Approach</a>
+        <a href="#team">Team</a>
+        <a href="#verticals">Verticals</a>
+      </div>
+      <div class="foot-col">
+        <h4>Connect</h4>
+        <a href="mailto:hello@polymind.in">hello@polymind.in</a>
+        <a href="https://polymind.in">www.polymind.in</a>
+        <a href="#contact">Start a conversation</a>
+      </div>
+    </div>
+    <div class="foot-bottom">
+      <span>© 2026 Polyminds. All rights reserved.</span>
+      <span><a href="#">Privacy</a> &nbsp;·&nbsp; <a href="#">Terms</a></span>
+    </div>
+  </div>
+</footer>
+
+<script>
+  const header=document.getElementById('header');
+  const onScroll=()=>header.classList.toggle('scrolled',window.scrollY>24);
+  onScroll();window.addEventListener('scroll',onScroll,{passive:true});
+  const io=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target);}}),{threshold:.16,rootMargin:'0px 0px -8% 0px'});
+  document.querySelectorAll('.reveal').forEach(el=>io.observe(el));
+  const mMenu=document.getElementById('mMenu');
+  const open=()=>{mMenu.classList.add('open');mMenu.setAttribute('aria-hidden','false');document.body.style.overflow='hidden';};
+  const close=()=>{mMenu.classList.remove('open');mMenu.setAttribute('aria-hidden','true');document.body.style.overflow='';};
+  document.getElementById('menuOpen').addEventListener('click',open);
+  document.getElementById('menuClose').addEventListener('click',close);
+  mMenu.querySelectorAll('a').forEach(a=>a.addEventListener('click',close));
+  document.addEventListener('keydown',e=>{if(e.key==='Escape')close();});
+</script>
+</body>
+</html>

@@ -1,0 +1,553 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Polyminds Political Intelligence — Winning the seats that matter</title>
+<meta name="description" content="Polyminds Political Intelligence: experts at winning difficult seats. A 90% win rate across 20+ states, working exclusively with stalwart leaders to convert and retain strongholds." />
+
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;0,6..72,600;1,6..72,400;1,6..72,500&family=Hanken+Grotesk:wght@400;500;600;700;800&family=IBM+Plex+Mono:wght@500;600&display=swap" rel="stylesheet" />
+
+<style>
+  :root{
+    --navy:#1D274E; --navy-700:#161e3c; --navy-900:#0f1530; --navy-1000:#0a1026;
+    --orange:#FF6724; --orange-600:#ec5410;
+    --ink:#11162b; --muted:#5a6178; --muted-2:#8a90a6; --line:#e4e6ee; --line-strong:#cfd3e0;
+    --paper:#fbfbfd; --paper-2:#f4f5f9; --white:#fff;
+    --on-navy:#eef0f7; --on-navy-muted:#a7adc6; --line-navy:rgba(255,255,255,.14);
+    --serif:'Newsreader',Georgia,serif; --sans:'Hanken Grotesk',system-ui,sans-serif; --mono:'IBM Plex Mono',ui-monospace,monospace;
+    --maxw:1240px; --gut:clamp(20px,5vw,64px); --r:2px;
+    --ease:cubic-bezier(.22,.61,.36,1);
+    --t1:clamp(2.5rem,6vw,5rem); --t2:clamp(1.9rem,3.8vw,3.1rem); --t3:clamp(1.3rem,2vw,1.7rem);
+    --shadow:0 1px 2px rgba(16,22,43,.05),0 20px 44px -30px rgba(16,22,43,.4);
+  }
+  *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+  html{scroll-behavior:smooth;-webkit-text-size-adjust:100%}
+  body{font-family:var(--sans);background:var(--paper);color:var(--ink);line-height:1.6;font-size:17px;-webkit-font-smoothing:antialiased;text-rendering:optimizeLegibility;overflow-x:hidden}
+  ::selection{background:var(--orange);color:#fff}
+  a{color:inherit;text-decoration:none}
+  img,svg{display:block;max-width:100%}
+  :focus-visible{outline:3px solid var(--orange);outline-offset:3px}
+  body::after{content:"";position:fixed;inset:0;pointer-events:none;z-index:9999;opacity:.025;mix-blend-mode:multiply;
+    background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.85' numOctaves='2' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E")}
+
+  .wrap{max-width:var(--maxw);margin-inline:auto;padding-inline:var(--gut)}
+  .mono{font-family:var(--mono);font-weight:500;letter-spacing:.02em;font-variant-numeric:tabular-nums}
+  .eyebrow{font-family:var(--mono);font-weight:600;font-size:.72rem;letter-spacing:.22em;text-transform:uppercase;color:var(--orange);display:inline-flex;align-items:center;gap:.7em}
+  .eyebrow::before{content:"";width:24px;height:2px;background:var(--orange)}
+  h1,h2,h3{font-family:var(--serif);font-weight:500;line-height:1.05;letter-spacing:-.012em;color:var(--navy)}
+  .serif-i{font-style:italic;font-weight:400}
+
+  .btn{font-family:var(--sans);font-weight:600;font-size:.95rem;display:inline-flex;align-items:center;gap:.6em;padding:.95em 1.5em;border-radius:var(--r);cursor:pointer;border:1px solid transparent;transition:transform .25s var(--ease),background .25s var(--ease),color .25s,border-color .25s;min-height:48px}
+  .btn .arr{transition:transform .3s var(--ease)}
+  .btn:hover .arr{transform:translateX(4px)}
+  .btn-primary{background:var(--orange);color:#fff}
+  .btn-primary:hover{background:var(--orange-600)}
+  .btn-ghost{background:transparent;color:var(--navy);border-color:var(--line-strong)}
+  .btn-ghost:hover{border-color:var(--navy)}
+  .btn-ghost.on-dark{color:var(--on-navy);border-color:var(--line-navy)}
+  .btn-ghost.on-dark:hover{border-color:rgba(255,255,255,.6)}
+
+  /* HEADER */
+  header{position:fixed;top:0;inset-inline:0;z-index:100;transition:background .35s var(--ease),box-shadow .35s,border-color .35s;border-bottom:1px solid transparent}
+  header.scrolled{background:rgba(251,251,253,.85);-webkit-backdrop-filter:saturate(1.4) blur(14px);backdrop-filter:saturate(1.4) blur(14px);border-bottom:1px solid var(--line)}
+  .nav{display:flex;align-items:center;justify-content:space-between;height:76px}
+  .brand{display:flex;align-items:center;gap:12px}
+  .brand .mark{width:32px;height:32px;flex:none}
+  .brand .name{font-family:var(--sans);font-weight:800;font-size:1.34rem;letter-spacing:-.03em;color:#fff;line-height:1}
+  .brand .name .accent{color:var(--orange)}
+  .brand .vert{margin-left:14px;padding-left:14px;border-left:1px solid var(--line-navy);font-family:var(--mono);font-weight:500;font-size:.66rem;letter-spacing:.18em;text-transform:uppercase;color:var(--on-navy-muted)}
+  .nav-links{display:flex;align-items:center;gap:30px}
+  .nav-links a{font-weight:600;font-size:.92rem;color:var(--on-navy);position:relative;padding:6px 0;opacity:.85;transition:opacity .25s}
+  .nav-links a:hover{opacity:1}
+  .nav-links a::after{content:"";position:absolute;left:0;bottom:0;height:2px;width:0;background:var(--orange);transition:width .3s var(--ease)}
+  .nav-links a:hover::after{width:100%}
+  .nav-cta{display:flex;align-items:center;gap:16px}
+  .menu-btn{display:none;background:none;border:0;cursor:pointer;padding:10px}
+  .menu-btn span{display:block;width:24px;height:2px;background:#fff;margin:5px 0;transition:.3s}
+  /* header is navy over the light hero */
+  header .brand .name{color:var(--navy)}
+  header .brand .mark path{fill:var(--navy)}
+  header .brand .vert{color:var(--muted);border-color:var(--line)}
+  header .nav-links a{color:var(--navy)}
+  header .menu-btn span{background:var(--navy)}
+
+  /* HERO — light editorial (shared across pages) */
+  .hero{position:relative;background:var(--paper);overflow:hidden;padding:168px 0 88px}
+  .hero::before{content:"";position:absolute;inset:0;z-index:0;pointer-events:none;background:radial-gradient(56% 74% at 96% -6%,rgba(255,103,36,.09),transparent 60%),radial-gradient(46% 64% at -6% 106%,rgba(29,39,78,.06),transparent 60%)}
+  .hero-arch{position:absolute;width:min(46vw,560px);pointer-events:none}
+  .hero .wrap{position:relative;z-index:2}
+  .hero-grid{display:grid;grid-template-columns:1.06fr .94fr;gap:52px;align-items:center}
+  .hero-copy{max-width:640px}
+  .hero-tag{display:inline-flex;align-items:center;gap:10px;font-family:var(--mono);font-size:.7rem;letter-spacing:.18em;text-transform:uppercase;color:var(--muted);border:1px solid var(--line);border-radius:100px;padding:7px 14px;margin-bottom:26px}
+  .hero-tag .dot{width:7px;height:7px;border-radius:50%;background:var(--orange);box-shadow:0 0 0 4px rgba(255,103,36,.15)}
+  .hero h1{color:var(--navy);font-size:var(--t1);max-width:14ch}
+  .hero .lead{color:var(--muted);font-size:clamp(1.05rem,1.4vw,1.25rem);max-width:48ch;margin-top:26px;line-height:1.55}
+  .hero-actions{display:flex;flex-wrap:wrap;gap:14px;margin-top:34px}
+  .hero-art{position:relative;width:min(100%,420px);aspect-ratio:1/1;justify-self:center;animation:hbob 8s ease-in-out infinite}
+  .hero-art .ring{position:absolute;inset:0;border-radius:50%;border:1px solid var(--line);background:radial-gradient(circle at 50% 36%,rgba(255,103,36,.10),rgba(29,39,78,.035) 72%)}
+  .hero-art .mk{position:absolute;inset:20%;filter:drop-shadow(0 28px 46px rgba(29,39,78,.20))}
+  .hero-art .mk svg{width:100%;height:100%;overflow:visible}
+  @keyframes hbob{0%,100%{transform:translateY(0)}50%{transform:translateY(-12px)}}
+  .hero-foot{display:flex;flex-wrap:wrap;gap:0;margin-top:48px;border-top:1px solid var(--line)}
+  .hf{flex:1;min-width:160px;padding:26px 30px 6px 0;border-right:1px solid var(--line)}
+  .hf:last-child{border-right:0}
+  .hf .n{font-family:var(--serif);font-size:clamp(2.2rem,3.4vw,2.9rem);color:var(--navy);line-height:1}
+  .hf .n em{color:var(--orange);font-style:normal}
+  .hf .l{font-family:var(--mono);font-size:.7rem;letter-spacing:.14em;text-transform:uppercase;color:var(--muted-2);margin-top:10px}
+
+  section{padding-block:clamp(70px,8.5vw,120px)}
+  .sec-head{max-width:64ch}
+  .sec-head h2{font-size:var(--t2);margin-top:18px}
+  .sec-head p{color:var(--muted);margin-top:16px;font-size:1.08rem;max-width:56ch}
+
+  /* CAPABILITIES */
+  .caps{display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:var(--line);border:1px solid var(--line);margin-top:54px}
+  .capx{background:var(--paper);padding:34px 30px 38px;position:relative;transition:background .3s var(--ease)}
+  .capx:hover{background:#fff}
+  .capx .ic{width:42px;height:42px;color:var(--orange);margin-bottom:22px}
+  .capx .num{position:absolute;top:30px;right:30px;font-family:var(--mono);font-size:.72rem;color:var(--muted-2)}
+  .capx h3{font-size:1.28rem;font-family:var(--sans);font-weight:700;color:var(--navy);letter-spacing:-.01em}
+  .capx p{color:var(--muted);margin-top:10px;font-size:.97rem;line-height:1.5}
+
+  /* TRACK RECORD */
+  .track{background:var(--navy);color:var(--on-navy);position:relative;overflow:hidden}
+  .track .sec-head h2{color:#fff}
+  .track .sec-head p{color:var(--on-navy-muted)}
+  .tr-list{margin-top:52px;border-top:1px solid var(--line-navy)}
+  .tr{display:grid;grid-template-columns:130px 1fr 1.1fr;gap:30px;padding:30px 0;border-bottom:1px solid var(--line-navy);align-items:baseline}
+  .tr .yr{font-family:var(--mono);font-weight:600;color:var(--orange);font-size:.95rem}
+  .tr h3{color:#fff;font-size:1.4rem}
+  .tr .res{color:var(--on-navy-muted);font-size:1rem;line-height:1.55}
+  .tr .seats{display:flex;flex-wrap:wrap;gap:7px;margin-top:14px}
+  .tr .seat{font-family:var(--mono);font-size:.72rem;letter-spacing:.02em;padding:5px 11px;border:1px solid var(--line-navy);border-radius:100px;color:var(--on-navy)}
+  .tr .seat.win{border-color:rgba(255,103,36,.55);color:#ffc7ad}
+
+  /* FOOTPRINT */
+  .foot-regions{display:grid;grid-template-columns:repeat(5,1fr);gap:24px;margin-top:48px}
+  .reg h4{font-family:var(--mono);font-size:.72rem;letter-spacing:.12em;text-transform:uppercase;color:var(--orange);padding-bottom:12px;border-bottom:1px solid var(--line);margin-bottom:14px}
+  .reg ul{list-style:none}
+  .reg li{padding:6px 0;font-size:.96rem;color:var(--ink);border-bottom:1px dotted var(--line)}
+
+  /* LEADERSHIP */
+  .leadership{background:var(--paper-2)}
+  .leaders{display:grid;grid-template-columns:repeat(4,1fr);gap:22px;margin-top:52px}
+  .person{background:#fff;border:1px solid var(--line);border-radius:4px;overflow:hidden;display:flex;flex-direction:column;transition:transform .35s var(--ease),box-shadow .35s,border-color .35s}
+  .person:hover{transform:translateY(-5px);box-shadow:var(--shadow);border-color:var(--line-strong)}
+  .person .pic{position:relative;height:248px;background:linear-gradient(165deg,var(--navy) 0%,var(--navy-900) 100%);overflow:hidden}
+  .person .pic::after{content:"";position:absolute;left:0;right:0;bottom:0;height:4px;background:var(--orange);transform:scaleX(0);transform-origin:left;transition:transform .4s var(--ease)}
+  .person:hover .pic::after{transform:scaleX(1)}
+  .person .pic .wm{position:absolute;left:-10px;top:-10px;width:120px;opacity:.08}
+  .person .pic img{position:absolute;bottom:0;left:50%;transform:translateX(-50%);height:96%;width:auto;object-fit:contain;object-position:bottom;filter:grayscale(1) contrast(1.05)}
+  .person .info{padding:22px 22px 26px;display:flex;flex-direction:column;flex:1}
+  .person .nm{font-family:var(--sans);font-weight:800;font-size:1.22rem;color:var(--navy);letter-spacing:-.01em}
+  .person .role{font-family:var(--mono);font-size:.7rem;letter-spacing:.04em;color:var(--orange);margin-top:8px;text-transform:uppercase}
+  .person .bio{color:var(--muted);font-size:.92rem;line-height:1.55;margin-top:14px}
+
+  /* ENDORSERS */
+  .endorse{background:var(--navy-900);color:var(--on-navy)}
+  .endorse .sec-head h2{color:#fff}
+  .endorse .sec-head p{color:var(--on-navy-muted)}
+  .end-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:1px;background:var(--line-navy);border:1px solid var(--line-navy);margin-top:48px}
+  .end{background:var(--navy-900);padding:24px 22px}
+  .end .en-name{font-family:var(--serif);font-size:1.18rem;color:#fff;line-height:1.15}
+  .end .en-role{font-family:var(--mono);font-size:.7rem;letter-spacing:.04em;color:var(--on-navy-muted);margin-top:8px;text-transform:uppercase}
+
+  /* VERTICALS */
+  .verts{display:grid;grid-template-columns:repeat(3,1fr);gap:22px;margin-top:52px}
+  .vert-card{border:1px solid var(--line);border-radius:4px;padding:32px 30px 34px;background:#fff;position:relative;display:flex;flex-direction:column;transition:.35s var(--ease)}
+  .vert-card:hover{box-shadow:var(--shadow);transform:translateY(-4px)}
+  .vert-card.current{background:var(--navy);border-color:var(--navy);color:var(--on-navy)}
+  .vert-card .vnum{font-family:var(--mono);font-size:.74rem;color:var(--muted-2)}
+  .vert-card.current .vnum{color:var(--on-navy-muted)}
+  .vert-card h3{font-size:1.55rem;margin-top:14px;color:var(--navy)}
+  .vert-card.current h3{color:#fff}
+  .vert-card .vdesc{color:var(--muted);margin-top:12px;font-size:.98rem;flex:1}
+  .vert-card.current .vdesc{color:var(--on-navy-muted)}
+  .vert-card .leads{margin-top:22px;padding-top:18px;border-top:1px solid var(--line)}
+  .vert-card.current .leads{border-color:var(--line-navy)}
+  .vert-card .leads .lbl{font-family:var(--mono);font-size:.66rem;letter-spacing:.12em;text-transform:uppercase;color:var(--muted-2);margin-bottom:8px}
+  .vert-card.current .leads .lbl{color:var(--on-navy-muted)}
+  .vert-card .leads .who{font-weight:600;font-size:.96rem;color:var(--ink)}
+  .vert-card.current .leads .who{color:#fff}
+  .badge-here{position:absolute;top:22px;right:22px;font-family:var(--mono);font-size:.62rem;letter-spacing:.1em;text-transform:uppercase;background:var(--orange);color:#fff;padding:5px 10px;border-radius:100px}
+
+  /* CTA */
+  .cta{background:var(--navy-1000);color:#fff;position:relative;overflow:hidden}
+  .cta .inner{display:grid;grid-template-columns:1.3fr .7fr;gap:40px;align-items:center;position:relative;z-index:1}
+  .cta h2{color:#fff;font-size:var(--t2);max-width:17ch}
+  .cta p{color:var(--on-navy-muted);margin-top:18px;max-width:44ch}
+  .cta .conf{font-family:var(--mono);font-size:.7rem;letter-spacing:.1em;text-transform:uppercase;color:var(--on-navy-muted);margin-top:22px;display:flex;align-items:center;gap:8px}
+  .cta-side{display:flex;flex-direction:column;gap:14px;align-items:flex-start}
+  .cta .archwm{position:absolute;left:-70px;bottom:-130px;width:460px;opacity:.07}
+
+  /* FOOTER */
+  footer{background:var(--navy);color:var(--on-navy-muted);padding-block:60px 32px}
+  .foot-top{display:grid;grid-template-columns:1.5fr 1fr 1fr;gap:40px;padding-bottom:44px;border-bottom:1px solid var(--line-navy)}
+  .foot-brand p{margin-top:18px;max-width:36ch;font-size:.95rem;line-height:1.6}
+  .foot-col h4{color:#fff;font-family:var(--mono);font-size:.72rem;letter-spacing:.12em;text-transform:uppercase;margin-bottom:16px}
+  .foot-col a{display:block;padding:6px 0;font-size:.95rem;transition:color .25s}
+  .foot-col a:hover{color:#fff}
+  .foot-bottom{display:flex;justify-content:space-between;flex-wrap:wrap;gap:14px;padding-top:26px;font-size:.85rem}
+
+  .reveal{opacity:0;transform:translateY(24px);transition:opacity .8s var(--ease),transform .8s var(--ease)}
+  .reveal.in{opacity:1;transform:none}
+  .hero [data-load]{opacity:0;transform:translateY(26px);animation:rise .9s var(--ease) forwards}
+  @keyframes rise{to{opacity:1;transform:none}}
+
+  .m-menu{position:fixed;inset:0;z-index:200;background:var(--navy);color:#fff;display:flex;flex-direction:column;padding:30px var(--gut);transform:translateY(-100%);transition:transform .45s var(--ease)}
+  .m-menu.open{transform:none}
+  .m-menu .m-top{display:flex;justify-content:space-between;align-items:center}
+  .m-menu .close{background:none;border:0;color:#fff;font-size:2rem;cursor:pointer}
+  .m-menu nav{margin-top:36px;display:flex;flex-direction:column}
+  .m-menu nav a{font-family:var(--serif);font-size:1.8rem;color:#fff;padding:11px 0;border-bottom:1px solid var(--line-navy)}
+  .m-menu .btn{margin-top:30px;align-self:flex-start}
+
+  @media (max-width:1024px){
+    .hero-grid{grid-template-columns:1fr;gap:40px}
+    .hero-art{display:none}
+    .caps{grid-template-columns:repeat(2,1fr)}
+    .leaders{grid-template-columns:repeat(2,1fr)}
+    .end-grid{grid-template-columns:repeat(2,1fr)}
+    .verts{grid-template-columns:1fr}
+    .foot-regions{grid-template-columns:repeat(3,1fr)}
+    .cta .inner{grid-template-columns:1fr}
+  }
+  @media (max-width:860px){
+    .nav-links,.nav-cta .btn{display:none}
+    .menu-btn{display:block}
+    .brand .vert{display:none}
+    .tr{grid-template-columns:1fr;gap:8px}
+    .hf{min-width:50%;flex:none;border-right:0;border-bottom:1px solid var(--line);padding-right:0}
+    .foot-top{grid-template-columns:1fr 1fr}
+  }
+  @media (max-width:560px){
+    body{font-size:16px}
+    .caps,.leaders,.end-grid{grid-template-columns:1fr}
+    .foot-regions{grid-template-columns:1fr 1fr}
+    .hf{min-width:100%}
+    .foot-top{grid-template-columns:1fr}
+  }
+  @media (prefers-reduced-motion:reduce){
+    *{animation:none!important;transition:none!important;scroll-behavior:auto!important}
+    .reveal,.hero [data-load]{opacity:1!important;transform:none!important}
+  }
+</style>
+</head>
+<body id="top">
+
+<header id="header">
+  <div class="wrap nav">
+    <a class="brand" href="index.html" aria-label="Polyminds home">
+      <svg class="mark" viewBox="0 0 100 100" aria-hidden="true">
+        <path d="M2 16 A70 70 0 0 1 72 86 L72 51 A35 35 0 0 0 37 16 Z" fill="#fff"/>
+        <rect x="52" y="0" width="35" height="35" rx="1.5" fill="#FF6724"/>
+      </svg>
+      <span class="name">Poly<span class="accent">minds</span></span>
+      <span class="vert">Political Intelligence</span>
+    </a>
+    <nav class="nav-links" aria-label="Primary">
+      <a href="#capabilities">Capabilities</a>
+      <a href="#track">Track Record</a>
+      <a href="#footprint">Footprint</a>
+      <a href="#leadership">Leadership</a>
+      <a href="#verticals">The Group</a>
+    </nav>
+    <div class="nav-cta">
+      <a href="assets/polyminds-political-intelligence-profile.pdf" target="_blank" class="btn btn-primary">Company profile <span class="arr">↓</span></a>
+      <button class="menu-btn" id="menuOpen" aria-label="Open menu"><span></span><span></span><span></span></button>
+    </div>
+  </div>
+</header>
+
+<div class="m-menu" id="mMenu" aria-hidden="true">
+  <div class="m-top">
+    <span class="brand"><span class="name">Poly<span class="accent">minds</span></span></span>
+    <button class="close" id="menuClose" aria-label="Close menu">×</button>
+  </div>
+  <nav>
+    <a href="#capabilities">Capabilities</a>
+    <a href="#track">Track Record</a>
+    <a href="#footprint">Footprint</a>
+    <a href="#leadership">Leadership</a>
+    <a href="#verticals">The Group</a>
+  </nav>
+  <a href="assets/polyminds-political-intelligence-profile.pdf" target="_blank" class="btn btn-primary">Download company profile <span class="arr">↓</span></a>
+</div>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="wrap">
+    <div class="hero-grid">
+      <div class="hero-copy">
+        <span class="hero-tag" data-load style="animation-delay:.05s"><span class="dot"></span> Polyminds · Political Intelligence</span>
+        <h1 data-load style="animation-delay:.12s">Experts at winning the <span class="serif-i">difficult</span> seats.</h1>
+        <p class="lead" data-load style="animation-delay:.2s">We work exclusively with stalwart leaders to convert and retain strongholds — fusing on-ground intelligence, narrative strategy, and war-room execution across more than twenty states.</p>
+        <div class="hero-actions" data-load style="animation-delay:.28s">
+          <a href="assets/polyminds-political-intelligence-profile.pdf" target="_blank" class="btn btn-primary">View the company profile <span class="arr">↓</span></a>
+          <a href="#contact" class="btn btn-ghost">Request a confidential briefing</a>
+        </div>
+      </div>
+      <div class="hero-art" aria-hidden="true">
+        <div class="ring"></div>
+        <div class="mk"><svg viewBox="0 0 100 100"><path d="M2 16 A70 70 0 0 1 72 86 L72 51 A35 35 0 0 0 37 16 Z" fill="#1D274E"/><rect x="52" y="0" width="35" height="35" rx="2" fill="#FF6724"/></svg></div>
+      </div>
+    </div>
+    <div class="hero-foot" data-load style="animation-delay:.36s">
+      <div class="hf"><div class="n"><em>90</em>%</div><div class="l">Win rate</div></div>
+      <div class="hf"><div class="n"><em>20</em>+</div><div class="l">States &amp; counting</div></div>
+      <div class="hf"><div class="n">2014<em>→</em></div><div class="l">Unbroken record</div></div>
+      <div class="hf"><div class="n"><em>7</em>/7</div><div class="l">2024 Lok Sabha seats</div></div>
+    </div>
+  </div>
+</section>
+
+<!-- CAPABILITIES -->
+<section id="capabilities">
+  <div class="wrap">
+    <div class="sec-head reveal">
+      <span class="eyebrow">What we do</span>
+      <h2>An integrated campaign machine — intelligence to <span class="serif-i">booth.</span></h2>
+      <p>Seven disciplines, one war room. We own the full arc of a winning campaign, from the first intelligence read to the final booth on polling day.</p>
+    </div>
+    <div class="caps reveal">
+      <div class="capx"><span class="num mono">01</span>
+        <svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><circle cx="12" cy="12" r="9"/><path d="M12 3v9l6 3"/></svg>
+        <h3>Political Intelligence</h3><p>Ground-truth extraction, micro-PI and constituency reads that tell you what's really happening on the ground.</p></div>
+      <div class="capx"><span class="num mono">02</span>
+        <svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M21 11.5a8.4 8.4 0 0 1-12 7.6L3 21l1.9-6A8.4 8.4 0 1 1 21 11.5Z"/></svg>
+        <h3>Narrative Strategy</h3><p>The message that moves the marginal voter — framed, tested, and disciplined across every channel.</p></div>
+      <div class="capx"><span class="num mono">03</span>
+        <svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M4 11a9 9 0 0 1 9 9M4 4a16 16 0 0 1 16 16"/><circle cx="5" cy="19" r="1.5" fill="currentColor"/></svg>
+        <h3>Digital Media Management</h3><p>Always-on digital operations — content, amplification, and rapid response built for the campaign cycle.</p></div>
+      <div class="capx"><span class="num mono">04</span>
+        <svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><circle cx="12" cy="12" r="9"/><circle cx="12" cy="12" r="4.5"/><circle cx="12" cy="12" r="1" fill="currentColor"/></svg>
+        <h3>Campaign Design &amp; Management</h3><p>End-to-end campaign architecture and on-the-ground delivery, run to a single accountable plan.</p></div>
+      <div class="capx"><span class="num mono">05</span>
+        <svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M12 21s7-6.3 7-11a7 7 0 1 0-14 0c0 4.7 7 11 7 11Z"/><circle cx="12" cy="10" r="2.5"/></svg>
+        <h3>Voter Mapping</h3><p>Granular segmentation and targeting so resources land on the voters and booths that decide the seat.</p></div>
+      <div class="capx"><span class="num mono">06</span>
+        <svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><rect x="3" y="3" width="7" height="7"/><rect x="14" y="3" width="7" height="7"/><rect x="3" y="14" width="7" height="7"/><path d="m14.5 17.5 2 2 4-4"/></svg>
+        <h3>Booth Management</h3><p>Polling-day machinery down to the last booth — coverage, turnout, and protection of every vote.</p></div>
+    </div>
+    <div class="reveal" style="margin-top:22px">
+      <div class="capx" style="border:1px solid var(--line);background:var(--navy);color:#fff;display:flex;align-items:center;justify-content:space-between;gap:24px;flex-wrap:wrap;padding:28px 30px">
+        <div style="display:flex;align-items:center;gap:18px">
+          <svg class="ic" style="color:var(--orange);margin:0" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M12 3v4M12 17v4M3 12h4M17 12h4M5.6 5.6l2.8 2.8M15.6 15.6l2.8 2.8M18.4 5.6l-2.8 2.8M8.4 15.6l-2.8 2.8"/></svg>
+          <div><h3 style="color:#fff">War-Room Management</h3><p style="color:var(--on-navy-muted)">The nerve centre that ties it all together — live intelligence, decisions, and command through to result.</p></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- TRACK RECORD -->
+<section id="track" class="track">
+  <svg class="hero-arch" style="opacity:.06;right:-6%;top:auto;bottom:-8%" viewBox="0 0 100 100" aria-hidden="true"><path d="M2 16 A70 70 0 0 1 72 86 L72 51 A35 35 0 0 0 37 16 Z" fill="#fff"/></svg>
+  <div class="wrap" style="position:relative">
+    <div class="sec-head reveal">
+      <span class="eyebrow">Recent record</span>
+      <h2>Seats others called <span class="serif-i">unwinnable.</span></h2>
+      <p>A selection of recent mandates. The full record across 20+ states is in the company profile.</p>
+    </div>
+    <div class="tr-list">
+      <div class="tr reveal">
+        <span class="yr">2024</span>
+        <div><h3>Lok Sabha — Maharashtra</h3><div class="seats"><span class="seat win">Sangli</span><span class="seat win">Kolhapur</span><span class="seat win">Latur</span><span class="seat win">Amravati</span></div></div>
+        <div class="res">Entrusted with 7 Lok Sabha seats and delivered a <strong style="color:#fff">100% win record</strong> — continuing an unbroken streak running since 2014.</div>
+      </div>
+      <div class="tr reveal">
+        <span class="yr">2024</span>
+        <div><h3>Maharashtra Assembly</h3><div class="seats"><span class="seat win">Palus</span><span class="seat win">Bramhapuri</span><span class="seat win">Bhokar</span><span class="seat win">Tuljapur</span></div></div>
+        <div class="res">Worked across 10+ assembly constituencies, securing wins in crucial strongholds.</div>
+      </div>
+      <div class="tr reveal">
+        <span class="yr">2025</span>
+        <div><h3>Delhi Assembly</h3><div class="seats"><span class="seat win">New Delhi</span><span class="seat win">Rajouri Garden</span><span class="seat win">Adarsh Nagar</span></div></div>
+        <div class="res">Tasked to win New Delhi, Rajouri Garden and Adarsh Nagar — and won, <strong style="color:#fff">defeating a former Chief Minister of Delhi.</strong></div>
+      </div>
+      <div class="tr reveal">
+        <span class="yr">2025</span>
+        <div><h3>Bihar Assembly</h3><div class="seats"><span class="seat win">Arwal</span><span class="seat win">Tarari</span></div></div>
+        <div class="res">Delivered seats like Arwal and Tarari — not won by the client for over a decade. Also managed the Tarari by-election.</div>
+      </div>
+      <div class="tr reveal">
+        <span class="yr">2024</span>
+        <div><h3>Jammu Assembly</h3><div class="seats"><span class="seat win">Nagrota</span></div></div>
+        <div class="res">Won Nagrota assembly with the <strong style="color:#fff">highest victory margin in the state.</strong></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTPRINT -->
+<section id="footprint">
+  <div class="wrap">
+    <div class="sec-head reveal">
+      <span class="eyebrow">Footprint</span>
+      <h2>Experience across <span class="serif-i">20+ states.</span></h2>
+      <p>A decade of campaigns has given us pattern recognition across India's most contested terrain.</p>
+    </div>
+    <div class="foot-regions reveal">
+      <div class="reg"><h4>North</h4><ul><li>Jammu &amp; Kashmir</li><li>Himachal Pradesh</li><li>Punjab</li><li>Uttarakhand</li><li>Delhi</li><li>Rajasthan</li><li>Uttar Pradesh</li></ul></div>
+      <div class="reg"><h4>Central</h4><ul><li>Madhya Pradesh</li><li>Chhattisgarh</li></ul></div>
+      <div class="reg"><h4>West</h4><ul><li>Maharashtra</li><li>Goa</li><li>Gujarat</li></ul></div>
+      <div class="reg"><h4>East</h4><ul><li>West Bengal</li><li>Bihar</li><li>Odisha</li><li>Tripura</li><li>Meghalaya</li></ul></div>
+      <div class="reg"><h4>South</h4><ul><li>Telangana</li><li>Andhra Pradesh</li><li>Karnataka</li></ul></div>
+    </div>
+  </div>
+</section>
+
+<!-- LEADERSHIP -->
+<section id="leadership" class="leadership">
+  <div class="wrap">
+    <div class="sec-head reveal">
+      <span class="eyebrow">Vertical heads</span>
+      <h2>The people in the <span class="serif-i">war room.</span></h2>
+      <p>Polyminds Political Intelligence is led by a team that has run intelligence and strategy for national and regional parties alike.</p>
+    </div>
+    <div class="leaders">
+      <article class="person reveal">
+        <div class="pic"><svg class="wm" viewBox="0 0 100 100"><path d="M2 16 A70 70 0 0 1 72 86 L72 51 A35 35 0 0 0 37 16 Z" fill="#fff"/></svg><img src="assets/ritwick.png" alt="Ritwick Shrivastav" loading="lazy"/></div>
+        <div class="info"><div class="nm">Ritwick Shrivastav</div><div class="role">CEO · Lawyer · Data Analyst</div><p class="bio">Has served as Head of Political Intelligence for AAP, INC and BJP, with campaign experience across more than 10 states.</p></div>
+      </article>
+      <article class="person reveal">
+        <div class="pic"><svg class="wm" viewBox="0 0 100 100"><path d="M2 16 A70 70 0 0 1 72 86 L72 51 A35 35 0 0 0 37 16 Z" fill="#fff"/></svg><img src="assets/manoj.png" alt="Manoj Bhosale" loading="lazy"/></div>
+        <div class="info"><div class="nm">Manoj Bhosale</div><div class="role">Policy Pro · 5+ yrs</div><p class="bio">Works in political intelligence, research and planning; was Head of micro-PI during the 2024 Lok Sabha campaign.</p></div>
+      </article>
+      <article class="person reveal">
+        <div class="pic"><svg class="wm" viewBox="0 0 100 100"><path d="M2 16 A70 70 0 0 1 72 86 L72 51 A35 35 0 0 0 37 16 Z" fill="#fff"/></svg><img src="assets/suhel.png" alt="Suhel Pratap" loading="lazy"/></div>
+        <div class="info"><div class="nm">Suhel Pratap</div><div class="role">Journalist · 8+ yrs</div><p class="bio">Graduate of SFU, Canada. Has managed campaigns for INC, BJP and regional parties across PB, MP, RJ, DL, MH and JK.</p></div>
+      </article>
+      <article class="person reveal">
+        <div class="pic"><svg class="wm" viewBox="0 0 100 100"><path d="M2 16 A70 70 0 0 1 72 86 L72 51 A35 35 0 0 0 37 16 Z" fill="#fff"/></svg><img src="assets/sauvik.png" alt="Sauvik Saha" loading="lazy"/></div>
+        <div class="info"><div class="nm">Sauvik Saha</div><div class="role">MBA · 5+ yrs</div><p class="bio">Former State Lead at I-PAC (WB, Goa, ML) and STC (AP), with successful campaigns in RJ, MH and DL.</p></div>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- ENDORSERS -->
+<section class="endorse">
+  <div class="wrap">
+    <div class="sec-head reveal">
+      <span class="eyebrow">Endorsed by</span>
+      <h2>Trusted by leaders across the <span class="serif-i">spectrum.</span></h2>
+      <p>Senior leaders who have worked with the Polyminds team.</p>
+    </div>
+    <div class="end-grid reveal">
+      <div class="end"><div class="en-name">Ashok Chavan</div><div class="en-role">Former Chief Minister, Maharashtra</div></div>
+      <div class="end"><div class="en-name">Sushilkumar Shinde</div><div class="en-role">Former Chief Minister, Maharashtra</div></div>
+      <div class="end"><div class="en-name">Parvesh Verma</div><div class="en-role">Minister, Delhi</div></div>
+      <div class="end"><div class="en-name">Majinder Singh Sirsa</div><div class="en-role">Minister, Delhi</div></div>
+      <div class="end"><div class="en-name">Sunil Tatkare</div><div class="en-role">President, NCP</div></div>
+      <div class="end"><div class="en-name">Satej Patil</div><div class="en-role">Former Minister, Maharashtra</div></div>
+      <div class="end"><div class="en-name">Rana Patil</div><div class="en-role">Chairman, MITRA</div></div>
+      <div class="end"><div class="en-name">Amit Deshmukh</div><div class="en-role">Former Minister, Maharashtra</div></div>
+      <div class="end"><div class="en-name">Devender Rana</div><div class="en-role">Former Minister, J&amp;K</div></div>
+      <div class="end"><div class="en-name">Devyani Rana</div><div class="en-role">MLA, Nagrota, J&amp;K</div></div>
+      <div class="end"><div class="en-name">Ambadas Danve</div><div class="en-role">Leader of Opposition, Maharashtra</div></div>
+      <div class="end"><div class="en-name">Vijay Wadettiwar</div><div class="en-role">Leader of Opposition, Maharashtra</div></div>
+    </div>
+  </div>
+</section>
+
+<!-- VERTICALS -->
+<section id="verticals">
+  <div class="wrap">
+    <div class="sec-head reveal">
+      <span class="eyebrow">The Polyminds group</span>
+      <h2>One firm, three <span class="serif-i">verticals.</span></h2>
+      <p>Political Intelligence is one of three practices under Polyminds, each led by partners from a shared bench of talent.</p>
+    </div>
+    <div class="verts">
+      <div class="vert-card reveal">
+        <span class="vnum mono">Vertical 01</span>
+        <h3>Polyminds Hospitality</h3>
+        <p class="vdesc">Hospitality ventures and operations — building and running experience-led businesses.</p>
+        <div class="leads"><div class="lbl">Led by</div><div class="who">Ritwick Shrivastav · Nisheeth Srivastava · Manoj Bhosale</div></div>
+      </div>
+      <div class="vert-card current reveal">
+        <span class="badge-here">You're here</span>
+        <span class="vnum mono">Vertical 02</span>
+        <h3>Polyminds Political Intelligence</h3>
+        <p class="vdesc">Winning difficult elections — intelligence, narrative and war-room execution for stalwart leaders.</p>
+        <div class="leads"><div class="lbl">Led by</div><div class="who">Ritwick Shrivastav · Manoj Bhosale · Suhel Pratap · Sauvik Saha</div></div>
+      </div>
+      <div class="vert-card reveal">
+        <span class="vnum mono">Vertical 03</span>
+        <h3>Polyminds Policy Solutions</h3>
+        <p class="vdesc">Governance and policy advisory — translating political mandate into deliverable policy.</p>
+        <div class="leads"><div class="lbl">Led by</div><div class="who">Manoj Bhosale · Sauvik Saha</div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CTA -->
+<section id="contact" class="cta">
+  <svg class="archwm" viewBox="0 0 100 100" aria-hidden="true"><path d="M2 16 A70 70 0 0 1 72 86 L72 51 A35 35 0 0 0 37 16 Z" fill="#fff"/></svg>
+  <div class="wrap inner">
+    <div class="reveal">
+      <span class="eyebrow">Work with us</span>
+      <h2 style="margin-top:16px">If the seat is winnable, we will <span class="serif-i">win it.</span></h2>
+      <p>We take on a limited number of mandates each cycle and work in strict confidence. Tell us about the contest in front of you.</p>
+      <div class="conf"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="4" y="10" width="16" height="11" rx="2"/><path d="M8 10V7a4 4 0 0 1 8 0v3"/></svg> Engagements held in strict confidence</div>
+    </div>
+    <div class="cta-side reveal">
+      <a href="mailto:hello@polymind.in" class="btn btn-primary">Request a confidential briefing <span class="arr">→</span></a>
+      <a href="assets/polyminds-political-intelligence-profile.pdf" target="_blank" class="btn btn-ghost on-dark">Download the company profile ↓</a>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    <div class="foot-top">
+      <div class="foot-brand">
+        <a class="brand" href="index.html">
+          <svg class="mark" viewBox="0 0 100 100" aria-hidden="true"><path d="M2 16 A70 70 0 0 1 72 86 L72 51 A35 35 0 0 0 37 16 Z" fill="#fff"/><rect x="52" y="0" width="35" height="35" rx="1.5" fill="#FF6724"/></svg>
+          <span class="name">Poly<span class="accent">minds</span></span>
+        </a>
+        <p>Political Intelligence — experts at winning difficult seats, working exclusively with stalwart leaders across 20+ states.</p>
+      </div>
+      <div class="foot-col">
+        <h4>Explore</h4>
+        <a href="#capabilities">Capabilities</a>
+        <a href="#track">Track record</a>
+        <a href="#leadership">Leadership</a>
+        <a href="#verticals">The group</a>
+      </div>
+      <div class="foot-col">
+        <h4>Connect</h4>
+        <a href="mailto:hello@polymind.in">hello@polymind.in</a>
+        <a href="assets/polyminds-political-intelligence-profile.pdf" target="_blank">Company profile (PDF)</a>
+        <a href="https://polymind.in">www.polymind.in</a>
+        <a href="index.html">Polyminds group</a>
+      </div>
+    </div>
+    <div class="foot-bottom">
+      <span>© 2026 Polyminds. All rights reserved.</span>
+      <span class="mono" style="font-size:.72rem;letter-spacing:.1em">90% WIN RATE · 20 STATES &amp; COUNTING</span>
+    </div>
+  </div>
+</footer>
+
+<script>
+  const header=document.getElementById('header');
+  const onScroll=()=>header.classList.toggle('scrolled',window.scrollY>24);
+  onScroll();window.addEventListener('scroll',onScroll,{passive:true});
+  const io=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target);}}),{threshold:.14,rootMargin:'0px 0px -8% 0px'});
+  document.querySelectorAll('.reveal').forEach(el=>io.observe(el));
+  const mMenu=document.getElementById('mMenu');
+  const open=()=>{mMenu.classList.add('open');mMenu.setAttribute('aria-hidden','false');document.body.style.overflow='hidden';};
+  const close=()=>{mMenu.classList.remove('open');mMenu.setAttribute('aria-hidden','true');document.body.style.overflow='';};
+  document.getElementById('menuOpen').addEventListener('click',open);
+  document.getElementById('menuClose').addEventListener('click',close);
+  mMenu.querySelectorAll('a').forEach(a=>a.addEventListener('click',close));
+  document.addEventListener('keydown',e=>{if(e.key==='Escape')close();});
+</script>
+</body>
+</html>
