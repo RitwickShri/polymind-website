@@ -293,3 +293,10 @@ footer{background:var(--navy);color:var(--on-navy-muted);padding-block:64px 34px
   *{animation:none!important;transition:none!important;scroll-behavior:auto!important}
   .reveal,.hero [data-load]{opacity:1!important;transform:none!important}
 }
+
+/* AUTHENTIC LOGO LOCKUP */
+.brand .lockup{display:flex;flex-direction:column;gap:6px}
+.brand .logo{height:30px;width:auto;display:block}
+.brand .grp{margin-top:0}
+footer .brand .logo{height:30px}
+.m-menu .logo{height:26px;width:auto;display:block}
