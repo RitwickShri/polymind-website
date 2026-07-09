@@ -288,6 +288,7 @@ footer{background:var(--navy);color:var(--on-navy-muted);padding-block:64px 34px
   .foot-top{grid-template-columns:1fr}
   .hero{padding-top:80px}
   .hero.sub{padding-top:64px}
+  .brand .logo{height:34px}
 }
 @media (prefers-reduced-motion:reduce){
   *{animation:none!important;transition:none!important;scroll-behavior:auto!important}
@@ -296,7 +297,15 @@ footer{background:var(--navy);color:var(--on-navy-muted);padding-block:64px 34px
 
 /* AUTHENTIC LOGO LOCKUP */
 .brand .lockup{display:flex;flex-direction:column;gap:6px}
-.brand .logo{height:30px;width:auto;display:block}
+.brand .logo{height:42px;width:auto;display:block}
 .brand .grp{margin-top:0}
-footer .brand .logo{height:30px}
-.m-menu .logo{height:26px;width:auto;display:block}
+footer .brand .logo{height:36px}
+.m-menu .logo{height:30px;width:auto;display:block}
+
+/* SIGNATURE ARC+SQUARE PATTERN — brand motif */
+.motif-band{height:clamp(84px,10vw,116px);background-color:var(--navy);background-image:url("data:image/svg+xml,%3Csvg%20xmlns%3D'http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg'%20viewBox%3D'0%200%20110.8%20110.8'%20width%3D'110.8'%20height%3D'110.8'%3E%3Cpath%20d%3D'M0%2050.54C19.46%2050.93%2037.3%2060.34%2048.57%2076%2055.88%2086.15%2059.86%2098.22%2060.06%20110.73L100.19%20110.73C100.03%2093.06%2095.31%2075.84%2086.37%2060.57%2077.62%2045.64%2065.11%2033.09%2050.17%2024.31%2035.15%2015.49%2017.41%2010.58%200%2010.41Z'%20fill%3D'%23FF6724'%2F%3E%3Crect%20x%3D'70.58'%20y%3D'0'%20width%3D'40.13'%20height%3D'40.13'%20fill%3D'%23FF6724'%2F%3E%3C%2Fsvg%3E");background-size:58px 58px;background-position:center;position:relative}
+.motif-band::after{content:"";position:absolute;inset:0;background:linear-gradient(90deg,var(--navy),transparent 12%,transparent 88%,var(--navy))}
+.cta{background-color:var(--navy-1000);background-image:url("data:image/svg+xml,%3Csvg%20xmlns%3D'http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg'%20viewBox%3D'0%200%20110.8%20110.8'%20width%3D'110.8'%20height%3D'110.8'%3E%3Cpath%20d%3D'M0%2050.54C19.46%2050.93%2037.3%2060.34%2048.57%2076%2055.88%2086.15%2059.86%2098.22%2060.06%20110.73L100.19%20110.73C100.03%2093.06%2095.31%2075.84%2086.37%2060.57%2077.62%2045.64%2065.11%2033.09%2050.17%2024.31%2035.15%2015.49%2017.41%2010.58%200%2010.41Z'%20fill%3D'%23FFFFFF'%20fill-opacity%3D'0.05'%2F%3E%3Crect%20x%3D'70.58'%20y%3D'0'%20width%3D'40.13'%20height%3D'40.13'%20fill%3D'%23FFFFFF'%20fill-opacity%3D'0.05'%2F%3E%3C%2Fsvg%3E");background-size:66px 66px}
+.firm{position:relative}
+.firm .fmark{position:absolute;right:-40px;bottom:-40px;width:340px;opacity:.05;pointer-events:none}
+@media (max-width:560px){.motif-band{background-size:46px 46px}}
