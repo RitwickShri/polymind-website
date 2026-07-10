@@ -315,3 +315,32 @@ footer .brand .logo{height:36px}
 .firm{position:relative}
 .firm .fmark{position:absolute;right:-40px;bottom:-40px;width:340px;opacity:.05;pointer-events:none}
 @media (max-width:560px){.motif-band{gap:34px;padding-block:44px;background-size:20px 20px}}
+
+
+/* ============ MOBILE & DENSITY REFINEMENTS ============ */
+@media (max-width:640px){
+  /* service ledger: number as a marker, everything full-width & airy */
+  .svc-row{display:block;padding:24px 0}
+  .svc-row .sn{display:block;color:var(--orange-ink);margin-bottom:7px}
+  .svc-row .st{display:block;font-size:1.12rem;line-height:1.32}
+  .svc-row .sd{display:block;margin-top:9px;max-width:none}
+  .svc-row:hover{padding-left:0;background:none}
+
+  /* leadership → swipeable rail with peeking cards (a phone-specific layout) */
+  .tgrid{display:flex;overflow-x:auto;scroll-snap-type:x mandatory;gap:16px;
+    margin-inline:calc(-1 * var(--gut));padding:4px var(--gut) 18px;scrollbar-width:none}
+  .tgrid::-webkit-scrollbar{display:none}
+  .tmember{flex:0 0 80%;min-width:80%;scroll-snap-align:center}
+
+  /* firm statement: lighter weight, less wall-of-text */
+  .firm-copy{font-size:1.14rem;line-height:1.62}
+  .firm-copy .dc{font-size:3.5em}
+
+  /* more air */
+  .ch-body{margin-top:40px;gap:30px}
+  .sec-head h2{margin-top:16px}
+  .sec-head p{margin-top:15px}
+  .aside-card{padding:28px 24px}
+  .aside-card+.aside-card{margin-top:16px}
+  .fp-grid{margin-top:40px}
+}
