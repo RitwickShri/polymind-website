@@ -41,11 +41,12 @@
   </div>
 </div>
 
-<header id="header">
+<header id="header" class="hero-dark">
   <div class="wrap nav">
     <a class="brand" href="index.html" aria-label="PolyMinds home">
       <span class="lockup">
-        <img class="logo" src="assets/logo.svg" alt="Polyminds"/>
+        <img class="logo logo-nav" src="assets/logo.svg" alt="Polyminds"/>
+        <img class="logo logo-nav-light" src="assets/logo-white.svg" alt="Polyminds"/>
         <span class="grp">GPPC Group</span>
       </span>
     </a>
@@ -81,29 +82,23 @@
 </div>
 
 <main>
-  <section class="hero">
-    <div class="wrap">
-      <div class="hero-grid">
-        <div class="hero-copy">
-          <span class="eyebrow" data-load style="animation-delay:.05s">Global Policy &amp; Political Consultants Pvt. Ltd.</span>
-          <h1 data-load style="animation-delay:.12s">Counsel for decisive <span class="serif-i">moments.</span></h1>
-          <p class="lead" data-load style="animation-delay:.2s">PolyMinds is the consulting brand of the <b>GPPC Group</b> — four specialist practices advising governments, political leaders, hoteliers and brands on the decisions they cannot afford to get wrong.</p>
-          <div class="hero-actions" data-load style="animation-delay:.28s">
-            <a href="#practices" class="btn btn-primary">Explore the practices <span class="arr">→</span></a>
-            <a href="#contact" class="btn btn-ghost">Start a conversation</a>
-          </div>
-        </div>
-        <div class="hero-art" aria-hidden="true" data-load style="animation-delay:.3s">
-          <div class="ring"></div>
-          <div class="ring2"></div>
-          <div class="mk"><svg viewBox="0 0 110.8 110.8"><path d="M0 50.54C19.46 50.93 37.3 60.34 48.57 76 55.88 86.15 59.86 98.22 60.06 110.73L100.19 110.73C100.03 93.06 95.31 75.84 86.37 60.57 77.62 45.64 65.11 33.09 50.17 24.31 35.15 15.49 17.41 10.58 0 10.41Z" fill="#1D274E"/><rect x="70.58" y="0" width="40.13" height="40.13" fill="#FF6724"/></svg></div>
-          <span class="orb o1"><i>01</i>Policy</span>
-          <span class="orb o2"><i>02</i>Political</span>
-          <span class="orb o3"><i>03</i>Hospitality</span>
-          <span class="orb o4"><i>04</i>Brand</span>
-        </div>
+  <section class="hero-shader" aria-label="PolyMinds — counsel for decisive moments">
+    <canvas id="heroShader" aria-hidden="true"></canvas>
+    <svg class="hs-mark" aria-hidden="true" viewBox="0 0 110.8 110.8"><path d="M0 50.54C19.46 50.93 37.3 60.34 48.57 76 55.88 86.15 59.86 98.22 60.06 110.73L100.19 110.73C100.03 93.06 95.31 75.84 86.37 60.57 77.62 45.64 65.11 33.09 50.17 24.31 35.15 15.49 17.41 10.58 0 10.41Z" fill="#ffffff"/><rect x="70.58" y="0" width="40.13" height="40.13" fill="#FF6724"/></svg>
+    <div class="wrap hs-content">
+      <span class="hs-badge" data-load style="animation-delay:.1s">Global Policy &amp; Political Consultants Pvt. Ltd.</span>
+      <h1 data-load style="animation-delay:.22s">Counsel for decisive <span class="serif-i">moments.</span></h1>
+      <p class="lead" data-load style="animation-delay:.34s">Four specialist practices advising governments, political leaders, hoteliers and brands on the decisions they cannot afford to get wrong.</p>
+      <div class="hero-actions" data-load style="animation-delay:.46s">
+        <a href="#practices" class="btn btn-primary">Explore the practices <span class="arr">→</span></a>
+        <a href="#contact" class="btn btn-ghost on-dark">Start a conversation</a>
       </div>
-      <div class="hero-ledger" data-load style="animation-delay:.4s">
+    </div>
+  </section>
+
+  <section class="ledger-band">
+    <div class="wrap">
+      <div class="hero-ledger reveal">
         <div class="hled"><div class="num"><em>90</em>%</div><div class="lb">Win rate across our political mandates</div></div>
         <div class="hled"><div class="num"><em>20</em>+</div><div class="lb">States where our teams have operated</div></div>
         <div class="hled"><div class="num"><em>4</em></div><div class="lb">Specialist practices under one brand</div></div>
