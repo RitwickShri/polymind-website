@@ -23,11 +23,11 @@ document.addEventListener('keydown', e => { if (e.key === 'Escape') close(); });
   let w, h, running = true, raf = 0;
 
   const blobs = [
-    { c: '104,128,214', a: 0.68, r: 0.60, x: 0.12, y: 0.20, sx: 0.26, sy: 0.20, fx: 0.128, fy: 0.104, ph: 0.0 },
-    { c: '8,13,34',     a: 0.72, r: 0.66, x: 0.88, y: 0.08, sx: 0.20, sy: 0.18, fx: 0.090, fy: 0.116, ph: 2.1 },
-    { c: '255,110,44',  a: 0.74, r: 0.56, x: 0.78, y: 0.76, sx: 0.24, sy: 0.19, fx: 0.109, fy: 0.134, ph: 4.2 },
-    { c: '255,150,84',  a: 0.42, r: 0.36, x: 0.30, y: 0.86, sx: 0.28, sy: 0.16, fx: 0.140, fy: 0.096, ph: 1.3 },
-    { c: '64,88,180',   a: 0.62, r: 0.56, x: 0.50, y: 0.44, sx: 0.30, sy: 0.24, fx: 0.078, fy: 0.088, ph: 3.4 }
+    { c: '104,128,214', a: 0.60, r: 0.34, x: 0.14, y: 0.22, sx: 0.24, sy: 0.18, fx: 0.128, fy: 0.104, ph: 0.0 },
+    { c: '8,13,34',     a: 0.78, r: 0.52, x: 0.86, y: 0.10, sx: 0.20, sy: 0.18, fx: 0.090, fy: 0.116, ph: 2.1 },
+    { c: '255,110,44',  a: 0.66, r: 0.32, x: 0.80, y: 0.78, sx: 0.22, sy: 0.18, fx: 0.109, fy: 0.134, ph: 4.2 },
+    { c: '255,150,84',  a: 0.38, r: 0.22, x: 0.32, y: 0.86, sx: 0.26, sy: 0.15, fx: 0.140, fy: 0.096, ph: 1.3 },
+    { c: '72,96,190',   a: 0.50, r: 0.30, x: 0.52, y: 0.46, sx: 0.28, sy: 0.22, fx: 0.078, fy: 0.088, ph: 3.4 }
   ];
 
   const resize = () => {
@@ -41,7 +41,7 @@ document.addEventListener('keydown', e => { if (e.key === 'Escape') close(); });
   const draw = (now) => {
     if (!running) return;
     const t = now / 1000;
-    ctx.fillStyle = '#1D274E';
+    ctx.fillStyle = '#0f1530';
     ctx.fillRect(0, 0, w, h);
     for (const b of blobs) {
       const cx = (b.x + b.sx * Math.sin(t * b.fx * 6.283 + b.ph)) * w;
