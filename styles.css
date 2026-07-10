@@ -357,10 +357,8 @@ header.hero-dark:not(.scrolled) .logo-nav-light{display:block}
 .hero-shader{position:relative;overflow:hidden;display:flex;align-items:center;
   min-height:calc(100svh - 114px);
   background:
-    radial-gradient(30% 34% at 86% 82%, rgba(255,110,44,.34), transparent 62%),
-    radial-gradient(28% 32% at 8% 20%, rgba(96,120,206,.40), transparent 64%),
-    radial-gradient(20% 24% at 64% 34%, rgba(255,150,84,.14), transparent 62%),
-    radial-gradient(72% 84% at 90% 2%, rgba(5,9,26,.92), transparent 74%),
+    radial-gradient(30% 36% at 70% 44%, rgba(255,103,36,.12), transparent 62%),
+    radial-gradient(30% 36% at 10% 14%, rgba(96,120,206,.13), transparent 64%),
     var(--navy-900)}
 #heroShader{position:absolute;inset:0;width:100%;height:100%;display:block}
 .hs-mark{position:absolute;right:-5vw;top:50%;transform:translateY(-56%);width:min(42vw,540px);opacity:.07;z-index:1;pointer-events:none}
