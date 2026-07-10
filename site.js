@@ -26,12 +26,13 @@ document.addEventListener('keydown', e => { if (e.key === 'Escape') close(); });
   let w, h, running = true, raf = 0;
   let nodes = [], pulses = [], foci = [], R = 130, spawnAt = 0;
   const mouse = { x: 0, y: 0, on: false };
-  const LABELS = ['POLICY', 'POLITICAL', 'HOSPITALITY', 'BRAND'];
 
+  /* four quiet points of convergence — one per practice, never named,
+     scattered across the field and clear of the copy */
   const fociSpots = () => {
-    if (w < 640)  return [[.14, .12], [.42, .08], [.70, .13], [.90, .20]];
-    if (w < 1080) return [[.82, .13], [.92, .33], [.84, .55], [.92, .76]];
-    return [[.60, .25], [.80, .17], [.88, .48], [.68, .63]];
+    if (w < 640)  return [[.15, .10], [.85, .15], [.20, .90], [.80, .85]];
+    if (w < 1080) return [[.16, .14], [.84, .20], [.22, .88], [.87, .72]];
+    return [[.18, .16], [.82, .20], [.30, .85], [.80, .70]];
   };
 
   const build = () => {
@@ -149,13 +150,6 @@ document.addEventListener('keydown', e => { if (e.key === 'Escape') close(); });
       }
     }
 
-    /* the four practices are one firm — faint connective loop */
-    ctx.strokeStyle = 'rgba(255,103,36,.09)';
-    ctx.beginPath();
-    ctx.moveTo(foci[0].x, foci[0].y);
-    for (let i = 1; i < foci.length; i++) ctx.lineTo(foci[i].x, foci[i].y);
-    ctx.closePath(); ctx.stroke();
-
     /* cursor links — the visitor's mind joins the network */
     if (mouse.on) {
       for (const nd of nodes) {
@@ -178,12 +172,12 @@ document.addEventListener('keydown', e => { if (e.key === 'Escape') close(); });
       const target = foci[Math.floor(Math.random() * foci.length)];
       const p = makePath(target);
       if (p) pulses.push({ path: p, target, seg: 0, u: 0 });
-      spawnAt = t + 1.1 + Math.random() * 1.0;
+      spawnAt = t + 1.8 + Math.random() * 1.4;
     }
     for (let i = pulses.length - 1; i >= 0; i--) {
       const p = pulses[i], a = p.path[p.seg], b = p.path[p.seg + 1];
       const segLen = Math.hypot(b.x - a.x, b.y - a.y);
-      p.u += (115 * dt) / Math.max(segLen, 1);
+      p.u += (52 * dt) / Math.max(segLen, 1);
       if (p.u >= 1) {
         p.seg++; p.u = 0;
         if (p.seg >= p.path.length - 1) { p.target.flash = 1; pulses.splice(i, 1); continue; }
@@ -198,10 +192,8 @@ document.addEventListener('keydown', e => { if (e.key === 'Escape') close(); });
       ctx.beginPath(); ctx.arc(x, y, 2.2, 0, 6.283); ctx.fill();
     }
 
-    /* the four points of decision, labelled */
-    ctx.textAlign = 'center';
-    for (let i = 0; i < foci.length; i++) {
-      const f = foci[i];
+    /* the four points of decision — unnamed, just quietly there */
+    for (const f of foci) {
       f.flash = Math.max(0, f.flash - dt * 1.3);
       const fr = 2.9 + Math.sin(t * 1.6 + f.ph) * .45 + f.flash * 2.6;
       const fg = ctx.createRadialGradient(f.x, f.y, 0, f.x, f.y, 30 + f.flash * 26);
@@ -211,10 +203,6 @@ document.addEventListener('keydown', e => { if (e.key === 'Escape') close(); });
       ctx.beginPath(); ctx.arc(f.x, f.y, 30 + f.flash * 26, 0, 6.283); ctx.fill();
       ctx.fillStyle = '#FF6724';
       ctx.beginPath(); ctx.arc(f.x, f.y, fr, 0, 6.283); ctx.fill();
-      ctx.font = '600 9px "IBM Plex Mono", ui-monospace, monospace';
-      try { ctx.letterSpacing = '2px'; } catch (e) {}
-      ctx.fillStyle = `rgba(222,228,246,${.52 + f.flash * .3})`;
-      ctx.fillText(LABELS[i], f.x, f.y + 21);
     }
 
     raf = requestAnimationFrame(draw);
