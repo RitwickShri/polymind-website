@@ -37,8 +37,9 @@ document.addEventListener('keydown', e => { if (e.key === 'Escape') close(); });
 
   const build = () => {
     foci = fociSpots().map((s, i) => ({ x: s[0] * w, y: s[1] * h, flash: 0, ph: i * 1.7 }));
-    R = Math.max(90, Math.min(130, Math.sqrt(w * h) / 10));
-    const n = Math.max(90, Math.min(230, Math.round(w * h / 7000)));
+    /* proportional to area — small screens get a lighter mesh, not desktop's */
+    R = Math.max(72, Math.min(130, Math.sqrt(w * h) / 10));
+    const n = Math.max(48, Math.min(230, Math.round(w * h / 7000)));
     nodes = [];
     for (let i = 0; i < n; i++) {
       nodes.push({
@@ -59,13 +60,16 @@ document.addEventListener('keydown', e => { if (e.key === 'Escape') close(); });
   };
   resize(); addEventListener('resize', resize, { passive: true });
 
-  /* the cursor joins the network */
-  const sec = cv.parentElement;
-  sec.addEventListener('pointermove', e => {
-    const r = cv.getBoundingClientRect();
-    mouse.x = e.clientX - r.left; mouse.y = e.clientY - r.top; mouse.on = true;
-  }, { passive: true });
-  sec.addEventListener('pointerleave', () => { mouse.on = false; }, { passive: true });
+  /* the cursor joins the network — real pointers only; on touch a drag is a
+     scroll, not a mind, and the link would stick where the finger left */
+  if (matchMedia('(pointer: fine)').matches) {
+    const sec = cv.parentElement;
+    sec.addEventListener('pointermove', e => {
+      const r = cv.getBoundingClientRect();
+      mouse.x = e.clientX - r.left; mouse.y = e.clientY - r.top; mouse.on = true;
+    }, { passive: true });
+    sec.addEventListener('pointerleave', () => { mouse.on = false; }, { passive: true });
+  }
 
   const dist = (a, b) => Math.hypot(a.x - b.x, a.y - b.y);
 
@@ -101,17 +105,20 @@ document.addEventListener('keydown', e => { if (e.key === 'Escape') close(); });
     ctx.fillStyle = '#0f1530';
     ctx.fillRect(0, 0, w, h);
 
-    /* ambient — a soft breath of light behind each practice, blue upper-left */
+    /* ambient — a soft breath of light behind each practice, blue upper-left.
+       Fill only each glow's bounding box, not the whole canvas (mobile GPUs). */
     for (const f of foci) {
-      const g = ctx.createRadialGradient(f.x, f.y, 0, f.x, f.y, Math.max(w, h) * .16);
+      const rad = Math.max(w, h) * .16;
+      const g = ctx.createRadialGradient(f.x, f.y, 0, f.x, f.y, rad);
       g.addColorStop(0, `rgba(255,103,36,${.06 + .02 * Math.sin(t * .8 + f.ph) + f.flash * .08})`);
       g.addColorStop(1, 'rgba(255,103,36,0)');
-      ctx.fillStyle = g; ctx.fillRect(0, 0, w, h);
+      ctx.fillStyle = g; ctx.fillRect(f.x - rad, f.y - rad, rad * 2, rad * 2);
     }
-    let g = ctx.createRadialGradient(w * .08, h * .16, 0, w * .08, h * .16, Math.max(w, h) * .32);
+    const brad = Math.max(w, h) * .32;
+    const g = ctx.createRadialGradient(w * .08, h * .16, 0, w * .08, h * .16, brad);
     g.addColorStop(0, 'rgba(96,120,206,.11)');
     g.addColorStop(1, 'rgba(96,120,206,0)');
-    ctx.fillStyle = g; ctx.fillRect(0, 0, w, h);
+    ctx.fillStyle = g; ctx.fillRect(w * .08 - brad, h * .16 - brad, brad * 2, brad * 2);
 
     /* drift + gentle swirl away from the cursor */
     const RM = 150;
