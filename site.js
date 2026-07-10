@@ -37,8 +37,8 @@ document.addEventListener('keydown', e => { if (e.key === 'Escape') close(); });
 
   const build = () => {
     foci = fociSpots().map((s, i) => ({ x: s[0] * w, y: s[1] * h, flash: 0, ph: i * 1.7 }));
-    R = Math.max(110, Math.min(160, Math.sqrt(w * h) / 8));
-    const n = Math.max(46, Math.min(110, Math.round(w * h / 15000)));
+    R = Math.max(90, Math.min(130, Math.sqrt(w * h) / 10));
+    const n = Math.max(90, Math.min(230, Math.round(w * h / 7000)));
     nodes = [];
     for (let i = 0; i < n; i++) {
       nodes.push({
@@ -171,13 +171,18 @@ document.addEventListener('keydown', e => { if (e.key === 'Escape') close(); });
     if (t > spawnAt && pulses.length < 4) {
       const target = foci[Math.floor(Math.random() * foci.length)];
       const p = makePath(target);
-      if (p) pulses.push({ path: p, target, seg: 0, u: 0 });
+      if (p) {
+        /* each convergence takes ~2s, whatever the path length */
+        let len = 0;
+        for (let k = 1; k < p.length; k++) len += Math.hypot(p[k].x - p[k - 1].x, p[k].y - p[k - 1].y);
+        pulses.push({ path: p, target, seg: 0, u: 0, spd: len / 2 });
+      }
       spawnAt = t + 1.8 + Math.random() * 1.4;
     }
     for (let i = pulses.length - 1; i >= 0; i--) {
       const p = pulses[i], a = p.path[p.seg], b = p.path[p.seg + 1];
       const segLen = Math.hypot(b.x - a.x, b.y - a.y);
-      p.u += (52 * dt) / Math.max(segLen, 1);
+      p.u += (p.spd * dt) / Math.max(segLen, 1);
       if (p.u >= 1) {
         p.seg++; p.u = 0;
         if (p.seg >= p.path.length - 1) { p.target.flash = 1; pulses.splice(i, 1); continue; }
